@@ -23,22 +23,25 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: 100vh;
   padding: 20px;
 }
 
 /* App Wrapper & Mobile Frame */
 .app-wrapper {
   width: 100%;
-  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex: 1;
 }
 
 .mobile-frame {
   width: 100%;
-  max-width: 420px;
-  height: 812px;
+  max-width: 360px;
+  height: auto;
+  max-height: calc(100vh - 40px);
+  aspect-ratio: 360/720;
   background: white;
   border-radius: 40px;
   border: 12px solid #000;
@@ -410,8 +413,6 @@ body {
   .mobile-frame {
     border-width: 8px;
     border-radius: 30px;
-    height: 100vh;
-    max-height: 90vh;
   }
 
   .mobile-frame::before {
@@ -426,15 +427,13 @@ body {
 }
 
 @media (max-width: 480px) {
-  .app-wrapper {
+  #root {
     padding: 10px;
   }
 
   .mobile-frame {
     border-width: 6px;
     border-radius: 20px;
-    height: auto;
-    min-height: 100vh;
   }
 
   .mobile-frame::before {
