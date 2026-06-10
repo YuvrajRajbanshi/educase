@@ -1,0 +1,52 @@
+/* Page-specific Styles */
+
+/* Signup Page */
+.signup-page {
+  background: #fff;
+  justify-content: flex-start;
+  padding-top: 40px;
+}
+
+.signup-page .form-header {
+  margin-bottom: 28px;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-container {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Form Focus States */
+.form-input:focus-visible {
+  outline: none;
+}
+
+.btn:focus-visible {
+  outline: 2px solid #6366f1;
+  outline-offset: -2px;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

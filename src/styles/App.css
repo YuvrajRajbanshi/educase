@@ -1,0 +1,461 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    sans-serif;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+}
+
+#root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* App Wrapper & Mobile Frame */
+.app-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-frame {
+  width: 100%;
+  max-width: 420px;
+  height: 812px;
+  background: white;
+  border-radius: 40px;
+  border: 12px solid #000;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Mobile Notch */
+.mobile-frame::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 28px;
+  background: #000;
+  border-radius: 0 0 30px 30px;
+  z-index: 10;
+}
+
+/* Page Container */
+.page-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  padding-top: 0;
+  scroll-behavior: smooth;
+}
+
+.page-content {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 20px;
+  align-items: center;
+}
+
+/* Welcome Page */
+.welcome-page {
+  background: #fff;
+}
+
+.welcome-hero {
+  width: 100%;
+  height: 280px;
+  background: linear-gradient(135deg, #f0f4f8 0%, #d9e8f2 100%);
+  border-radius: 16px;
+  margin-bottom: 0;
+}
+
+.welcome-card {
+  width: 100%;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.welcome-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 12px;
+  line-height: 1.3;
+  letter-spacing: -0.5px;
+}
+
+.welcome-description {
+  font-size: 13px;
+  color: #999;
+  margin-bottom: 32px;
+  line-height: 1.6;
+  letter-spacing: 0.3px;
+}
+
+/* Login Page */
+.login-page {
+  background: #fff;
+  justify-content: flex-start;
+  padding-top: 60px;
+}
+
+.form-header {
+  width: 100%;
+  text-align: left;
+  margin-bottom: 32px;
+}
+
+.form-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 12px;
+  line-height: 1.3;
+  letter-spacing: -0.4px;
+}
+
+.form-description {
+  font-size: 13px;
+  color: #999;
+  line-height: 1.6;
+  letter-spacing: 0.3px;
+}
+
+/* Auth Form */
+.auth-form {
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  color: #6366f1;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.required-asterisk {
+  color: #6366f1;
+  font-weight: 600;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #333;
+  font-family: inherit;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s,
+    background-color 0.2s;
+  background-color: #fafafa;
+}
+
+.form-input::placeholder {
+  color: #ccc;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #6366f1;
+  background-color: #fff;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+/* Radio Group */
+.radio-group {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  color: #333;
+  user-select: none;
+  font-weight: 500;
+}
+
+.radio-label input[type="radio"] {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #6366f1;
+  border-radius: 50%;
+  cursor: pointer;
+  margin: 0;
+  background: white;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.radio-label input[type="radio"]:checked {
+  background: #6366f1;
+  box-shadow: inset 0 0 0 4px white;
+}
+
+.radio-custom {
+  display: none;
+}
+
+/* Buttons */
+.btn {
+  width: 100%;
+  padding: 14px 16px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  letter-spacing: 0.3px;
+}
+
+.btn-primary {
+  background-color: #6366f1;
+  color: white;
+  margin-top: 20px;
+}
+
+.btn-primary:hover {
+  background-color: #4f46e5;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+.btn-secondary {
+  background-color: #e9d5ff;
+  color: #333;
+  margin-top: 12px;
+  border: 1px solid #f3d8ff;
+}
+
+.btn-secondary:hover {
+  background-color: #f3e8ff;
+}
+
+.btn-secondary:active {
+  transform: scale(0.98);
+}
+
+.btn-login {
+  background-color: #999;
+  color: white;
+  margin-top: 24px;
+}
+
+.btn-login:hover {
+  background-color: #888;
+}
+
+.btn-login:active {
+  transform: scale(0.98);
+}
+
+/* Account Settings Page */
+.account-page {
+  background: #fff;
+  justify-content: flex-start;
+  padding-top: 40px;
+}
+
+.settings-header {
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.settings-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #f0f0f0;
+  letter-spacing: 0.2px;
+}
+
+.profile-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.profile-header {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.avatar-wrapper {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.avatar-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #f0f0f0;
+}
+
+.avatar-badge {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 24px;
+  height: 24px;
+  background-color: #6366f1;
+  border-radius: 50%;
+  border: 3px solid white;
+}
+
+.profile-info {
+  flex: 1;
+  pt: 4px;
+}
+
+.profile-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 4px 0;
+  letter-spacing: -0.3px;
+}
+
+.profile-email {
+  font-size: 13px;
+  color: #999;
+  margin: 0;
+  letter-spacing: 0.2px;
+}
+
+.profile-description {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+  padding-top: 16px;
+  border-top: 1px dashed #e9e9e9;
+  letter-spacing: 0.3px;
+}
+
+/* Scrollbar Styling */
+.page-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.page-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.page-container::-webkit-scrollbar-thumb {
+  background: #ddd;
+  border-radius: 3px;
+}
+
+.page-container::-webkit-scrollbar-thumb:hover {
+  background: #bbb;
+}
+
+/* Responsive - Tablet & Desktop */
+@media (max-width: 768px) {
+  .mobile-frame {
+    border-width: 8px;
+    border-radius: 30px;
+    height: 100vh;
+    max-height: 90vh;
+  }
+
+  .mobile-frame::before {
+    width: 150px;
+    height: 24px;
+    border-radius: 0 0 20px 20px;
+  }
+
+  .page-content {
+    padding: 40px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-wrapper {
+    padding: 10px;
+  }
+
+  .mobile-frame {
+    border-width: 6px;
+    border-radius: 20px;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .mobile-frame::before {
+    width: 120px;
+    height: 20px;
+    border-radius: 0 0 15px 15px;
+  }
+
+  .page-content {
+    padding: 30px 18px;
+  }
+
+  .welcome-hero {
+    height: 200px;
+  }
+
+  .form-title {
+    font-size: 22px;
+  }
+
+  .welcome-title {
+    font-size: 24px;
+  }
+}
